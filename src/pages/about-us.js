@@ -137,7 +137,7 @@ export default function AboutUs() {
                     </div>
                     <div>
                       <p className="text-white font-semibold">Visit Our Studio</p>
-                      <p className="text-gray-300">Sashtri Nagar<br />Delhi, India</p>
+                      <p onClick={() => window.open('https://maps.app.goo.gl/3d3Uh1SNKuZZF9iZ8', '_blank')} className="text-gray-300 cursor-pointer">WZ-19, Nimri Village, Block D, Shastri Nagar, Delhi, 110052</p>
                     </div>
                   </div>
                 </div>

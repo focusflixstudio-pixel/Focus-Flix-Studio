@@ -12,6 +12,7 @@ import WhatsAppCTA from './components/WhatsappCTA'
 import HeroSection from './components/HeroSection'
 import AchievementStrip from './components/AchievementStrip'
 import ServicesSection from './components/ServicesSection'
+import VideoGallerySection from './components/VideoGallerySection'
 
 const HeroCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0)
@@ -135,6 +136,7 @@ const timer = setTimeout(() => {
       </div>
       <InfiniteGallery></InfiniteGallery>
       <ServicesSection />
+      <VideoGallerySection />
       <Testimonials></Testimonials>
       <AchievementStrip />
       <WhatsAppCTA />

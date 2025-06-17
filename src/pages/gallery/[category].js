@@ -29,7 +29,7 @@ const imageData = {
     { id: 8, src: '/images/pre-wedding/pre-wedding-8.jpg', alt: 'Cityscape Couple Shot', width: 800, height: 600 },
   ],
   events: [
-    { id: 1, src: '/images/events/event-1.JPG', alt: 'Corporate Event Photography', width: 800, height: 600 },
+    { id: 1, src: '/images/events/event-1.jpg', alt: 'Corporate Event Photography', width: 800, height: 600 },
     { id: 2, src: '/images/events/event-2.JPG', alt: 'Birthday Party Celebration', width: 800, height: 600 },
     { id: 3, src: '/images/events/event-3.JPG', alt: 'Conference and Seminars', width: 800, height: 600 },
     { id: 4, src: '/images/events/event-4.jpg', alt: 'Social Gathering Moments', width: 800, height: 600 },

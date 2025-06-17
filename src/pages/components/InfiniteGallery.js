@@ -3,16 +3,16 @@
 import Image from 'next/image'
 
 const images = [
+    '/images/galfour.jpg',
+  '/images/galfive.jpg',
+  '/images/galsix.jpg',
+  '/images/galseven.jpg',
+  '/images/galeight.jpg',
   '/images/galone.jpg',
   '/images/galtwo.jpg',
   '/images/galthree.jpg',
   '/images/herofour.png',
   '/images/herofive.jpg',
-  '/images/galfour.jpg',
-  '/images/galfive.jpg',
-  '/images/galsix.jpg',
-  '/images/galseven.jpg',
-  '/images/galeight.jpg'
 ]
 
 const ResponsivePhotoGrid = () => {

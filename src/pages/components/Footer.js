@@ -187,9 +187,9 @@ const Footer = () => {
                   <div className="p-2 bg-amber-400/20 rounded-full">
                     <MapPin className="w-4 h-4 text-amber-400" />
                   </div>
-                  <div>
+                  <div onClick={() => window.open('https://maps.app.goo.gl/3d3Uh1SNKuZZF9iZ8', '_blank')} className="cursor-pointer">
                     <p className="text-xs text-gray-400 uppercase tracking-wider">Location</p>
-                    <p className="text-white font-medium">Delhi, India</p>
+                    <p className="text-white font-medium">WZ-19, Nimri Village, Block D, Shastri Nagar, Delhi, 110052</p>
                   </div>
                 </div>
               </div>
