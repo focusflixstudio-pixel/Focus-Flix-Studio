@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import logo from '@/../public/images/Focus Flix.png'
-import { PhoneCall, Instagram, Youtube } from 'lucide-react'
-import AnimatedGallery from './components/AnimatedGallery'
-import HeroTitle from './components/HeroTitle'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import InfiniteGallery from './components/InfiniteGallery'
@@ -13,6 +9,9 @@ import HeroSection from './components/HeroSection'
 import AchievementStrip from './components/AchievementStrip'
 import ServicesSection from './components/ServicesSection'
 import VideoGallerySection from './components/VideoGallerySection'
+import Head from 'next/head'
+
+const POPUP_STORAGE_KEY = 'focusflix_quote_popup_closed';
 
 const HeroCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0)
@@ -27,21 +26,28 @@ const HeroCarousel = () => {
     message: ''
   });
 
-useEffect(() => {
-const timer = setTimeout(() => {
-   if (!formSubmitted) {
-  setShowForm(true);
- }
+  useEffect(() => {
+  const popupAlreadyClosed = localStorage.getItem(POPUP_STORAGE_KEY);
+
+  if (popupAlreadyClosed) return;
+
+  const timer = setTimeout(() => {
+    setShowForm(true);
   }, 1000);
 
- const toastTimer = setTimeout(() => {
-  if (formSubmitted) {
-    setShowToast(false);
-    }
-   }, 5000);
+  return () => clearTimeout(timer);
+}, []);
 
- return () => clearTimeout(timer);
- }, [formSubmitted]);
+useEffect(() => {
+  if (showToast) {
+    const toastTimer = setTimeout(() => {
+      setShowToast(false);
+    }, 5000);
+
+    return () => clearTimeout(toastTimer);
+  }
+}, [showToast]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +57,7 @@ const timer = setTimeout(() => {
     }));
   };
 
- const handleSubmit = (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
 
   const { name, phone, eventType, budget, message } = formData;
@@ -61,17 +67,23 @@ const timer = setTimeout(() => {
     return;
   }
 
-  const text = `Hello! I'm interested in your services.\n\n` +
-               `Name: ${name}\n` +
-               `Phone: ${phone}\n` +
-               `Event Type: ${eventType}\n` +
-               `Budget: ${budget}\n` +
-               (message ? `Message: ${message}` : '');
+  const text =
+    `Hello! I'm interested in your services.\n\n` +
+    `Name: ${name}\n` +
+    `Phone: ${phone}\n` +
+    `Event Type: ${eventType}\n` +
+    `Budget: ${budget}\n` +
+    (message ? `Message: ${message}` : '');
 
   const encodedText = encodeURIComponent(text);
   const phoneNumber = '919910553381';
 
-  window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+  window.open(
+    `https://wa.me/${phoneNumber}?text=${encodedText}`,
+    '_blank'
+  );
+
+  localStorage.setItem(POPUP_STORAGE_KEY, 'true');
 
   setShowForm(false);
   setFormSubmitted(true);
@@ -87,9 +99,10 @@ const timer = setTimeout(() => {
 };
 
 
-  const closeForm = () => {
-    setShowForm(false);
-  };
+const closeForm = () => {
+  localStorage.setItem(POPUP_STORAGE_KEY, 'true');
+  setShowForm(false);
+};
 
   const heroImages = [
     {
@@ -122,6 +135,63 @@ const timer = setTimeout(() => {
   }, [heroImages.length])
 
   return (
+    <>
+    <Head>
+        <title>Focus Flix Studio | Best Wedding Photographer & Videographer in Delhi</title>
+
+    <meta
+      name="description"
+      content="Focus Flix Studio is Delhi's premium wedding photography and cinematography agency specializing in cinematic wedding films, pre wedding shoots, candid photography and luxury event coverage."
+    />
+
+    <meta
+      name="keywords"
+      content="wedding photographer Delhi, wedding videographer Delhi, cinematic wedding films, pre wedding shoot Delhi, wedding cinematography India"
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Focus Flix Studio" />
+
+    <meta
+      property="og:description"
+      content="Luxury wedding photography and cinematic wedding films in Delhi."
+    />
+
+    <meta property="og:image" content="/images/heroone.png" />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://focusflixstudio.com" />
+
+    <link rel="canonical" href="https://focusflixstudio.com" />
+     <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      name: "Focus Flix Studio",
+      image: "https://focusflixstudio.com/images/heroone.png",
+      url: "https://focusflixstudio.com",
+      telephone: "+91-9910553381",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Delhi",
+        addressCountry: "IN"
+      },
+      priceRange: "₹₹₹",
+      description:
+        "Wedding photography and cinematography agency in Delhi NCR"
+    })
+  }}
+/>
+    </Head>
     <div className='w-full bg-[#0d0d0d] scroll-smooth'>
       <Navbar logo={logo} />
      <HeroSection />
@@ -143,13 +213,30 @@ const timer = setTimeout(() => {
         {showForm && (
         <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 scale-100">
-            {/* Form Header */}
+       <button
+  onClick={closeForm}
+  className="absolute top-4 right-4 text-white hover:text-gray-200 transition cursor-pointer"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
+</button>
             <div className="bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 rounded-t-2xl p-6 text-white relative">
               <h3 className="text-2xl font-bold mb-2">Get Your Quote</h3>
               <p className="text-pink-100">Tell us about your special event</p>
             </div>
 
-            {/* Form Body */}
             <div className="p-6 space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -226,7 +313,6 @@ const timer = setTimeout(() => {
                   <option value="discuss">Let&apos;s Discuss</option>
                 </select>
               </div>
-              {/* Form Actions */}
               <div className="pt-4">
                 <button
                   type="submit"
@@ -253,6 +339,7 @@ const timer = setTimeout(() => {
       )}
       <Footer></Footer>
     </div>
+    </>
   )
 }
 

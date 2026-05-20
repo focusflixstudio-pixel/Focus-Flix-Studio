@@ -21,7 +21,7 @@ const Navbar = ({ logo }) => {
   const socialLinks = [
     { icon: PhoneCall, href: 'tel:+919910553381', label: 'Phone' },
     { icon: Instagram, href: 'https://www.instagram.com/focus_flix_studio/?hl=en', target: '_blank', label: 'Instagram' },
-    { icon: Youtube, href: 'https://youtube.com', target: '_blank', label: 'YouTube' }
+    { icon: Youtube, href: 'https://www.youtube.com/@focusflixstudio', target: '_blank', label: 'YouTube' }
   ];
 
   useEffect(() => {
@@ -79,7 +79,6 @@ const Navbar = ({ logo }) => {
             scrolled ? 'h-16' : 'h-20'
           }`}>
             
-            {/* Logo with Animation */}
             <div className="flex-shrink-0 z-50">
               <div className="transform transition-all duration-500 hover:scale-110">
                 <Image 
@@ -157,7 +156,6 @@ const Navbar = ({ logo }) => {
         </div>
       </nav>
 
-      {/* Mobile Menu - Top to Bottom Animation */}
       <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-700 ${
         isMobileMenuOpen ? 'visible' : 'invisible'
       }`}>

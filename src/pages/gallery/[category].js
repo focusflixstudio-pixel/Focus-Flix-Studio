@@ -1,119 +1,108 @@
 // pages/gallery/[category].js
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import logo from '@/../public/images/Focus Flix.png'
+import logo from '@/../public/images/Focus Flix.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronLeft, X, ChevronRight } from 'lucide-react';
+import { ChevronLeft, X, ChevronRight, ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const imageData = {
   wedding: [
-    { id: 1, src: '/images/wedding/wedding1.jpg', alt: 'Beautiful Wedding Ceremony', width: 800, height: 600 },
-    { id: 2, src: '/images/wedding/wedding2.jpg', alt: 'Bride and Groom Portrait', width: 800, height: 600 },
-    { id: 3, src: '/images/wedding/wedding3.JPG', alt: 'Wedding Reception Dance', width: 800, height: 600 },
-    { id: 4, src: '/images/wedding/wedding4.JPG', alt: 'Exchange of Vows', width: 800, height: 600 },
-    { id: 5, src: '/images/wedding/wedding5.JPG', alt: 'Wedding Party Group Photo', width: 800, height: 600 },
-    { id: 6, src: '/images/wedding/wedding6.jpg', alt: 'Romantic Couple Shot', width: 800, height: 600 },
-    { id: 7, src: '/images/wedding/wedding7.jpg', alt: 'Wedding Cake Cutting', width: 800, height: 600 },
-    { id: 8, src: '/images/wedding/wedding8.JPG', alt: 'First Dance Moment', width: 800, height: 600 },
+    { id: 1, src: '/images/wedding/wedding1.jpg', alt: 'Beautiful Wedding Ceremony' },
+    { id: 2, src: '/images/wedding/wedding2.jpg', alt: 'Bride and Groom Portrait' },
+    { id: 3, src: '/images/wedding/wedding3.JPG', alt: 'Wedding Reception Dance' },
+    { id: 4, src: '/images/wedding/wedding4.JPG', alt: 'Exchange of Vows' },
+    { id: 5, src: '/images/wedding/wedding5.JPG', alt: 'Wedding Party Group Photo' },
+    { id: 6, src: '/images/wedding/wedding6.jpg', alt: 'Romantic Couple Shot' },
+    { id: 7, src: '/images/wedding/wedding7.jpg', alt: 'Wedding Cake Cutting' },
+    { id: 8, src: '/images/wedding/wedding8.JPG', alt: 'First Dance Moment' },
   ],
   'pre-wedding': [
-    { id: 1, src: '/images/pre-wedding/pre-wedding-1.jpg', alt: 'Romantic Outdoor Session', width: 800, height: 600 },
-    { id: 2, src: '/images/pre-wedding/pre-wedding-2.jpg', alt: 'Sunset Couple Portrait', width: 800, height: 600 },
-    { id: 3, src: '/images/pre-wedding/pre-wedding-3.jpg', alt: 'Casual Fun Moments', width: 800, height: 600 },
-    { id: 4, src: '/images/pre-wedding/pre-wedding-4.jpg', alt: 'Intimate Close-up Shot', width: 800, height: 600 },
-    { id: 5, src: '/images/pre-wedding/pre-wedding-5.jpg', alt: 'Beach Romance Session', width: 800, height: 600 },
-    { id: 6, src: '/images/pre-wedding/pre-wedding-6.jpg', alt: 'Garden Love Story', width: 800, height: 600 },
-      { id: 7, src: '/images/pre-wedding/pre-wedding-7.jpg', alt: 'Garden Love Story', width: 800, height: 600 },
-    { id: 8, src: '/images/pre-wedding/pre-wedding-8.jpg', alt: 'Cityscape Couple Shot', width: 800, height: 600 },
+    { id: 1, src: '/images/pre-wedding/pre-wedding-1.jpg', alt: 'Romantic Outdoor Session' },
+    { id: 2, src: '/images/pre-wedding/pre-wedding-2.jpg', alt: 'Sunset Couple Portrait' },
+    { id: 3, src: '/images/pre-wedding/pre-wedding-3.jpg', alt: 'Casual Fun Moments' },
+    { id: 4, src: '/images/pre-wedding/pre-wedding-4.jpg', alt: 'Intimate Close-up Shot' },
+    { id: 5, src: '/images/pre-wedding/pre-wedding-5.jpg', alt: 'Beach Romance Session' },
+    { id: 6, src: '/images/pre-wedding/pre-wedding-6.jpg', alt: 'Garden Love Story' },
+    { id: 7, src: '/images/pre-wedding/pre-wedding-7.jpg', alt: 'Garden Love Story' },
+    { id: 8, src: '/images/pre-wedding/pre-wedding-8.jpg', alt: 'Cityscape Couple Shot' },
   ],
   events: [
-    { id: 1, src: '/images/events/event-1.jpg', alt: 'Corporate Event Photography', width: 800, height: 600 },
-    { id: 2, src: '/images/events/event-2.JPG', alt: 'Birthday Party Celebration', width: 800, height: 600 },
-    { id: 3, src: '/images/events/event-3.JPG', alt: 'Conference and Seminars', width: 800, height: 600 },
-    { id: 4, src: '/images/events/event-4.jpg', alt: 'Social Gathering Moments', width: 800, height: 600 },
-    { id: 5, src: '/images/events/event-5.JPG', alt: 'Festival and Cultural Events', width: 800, height: 600 },
-    { id: 6, src: '/images/events/event-6.JPG', alt: 'Award Ceremony Coverage', width: 800, height: 600 },
-    { id: 7, src: '/images/events/event-7.JPG', alt: 'Concert and Live Events', width: 800, height: 600 },
-    { id: 8, src: '/images/events/event-8.JPG', alt: 'Family Reunion Photography', width: 800, height: 600 },
+    { id: 1, src: '/images/events/event-1.jpg', alt: 'Corporate Event Photography' },
+    { id: 2, src: '/images/events/event-2.JPG', alt: 'Birthday Party Celebration' },
+    { id: 3, src: '/images/events/event-3.JPG', alt: 'Conference and Seminars' },
+    { id: 4, src: '/images/events/event-4.jpg', alt: 'Social Gathering Moments' },
+    { id: 5, src: '/images/events/event-5.JPG', alt: 'Festival and Cultural Events' },
+    { id: 6, src: '/images/events/event-6.JPG', alt: 'Award Ceremony Coverage' },
+    { id: 7, src: '/images/events/event-7.JPG', alt: 'Concert and Live Events' },
+    { id: 8, src: '/images/events/event-8.JPG', alt: 'Family Reunion Photography' },
   ],
   maternity: [
-    { id: 1, src: '/images/maternity/maternity-1.JPG', alt: 'Beautiful Expectant Mother', width: 800, height: 600 },
-    { id: 2, src: '/images/maternity/maternity-2.JPG', alt: 'Couple Maternity Session', width: 800, height: 600 },
-    { id: 3, src: '/images/maternity/maternity-3.JPG', alt: 'Outdoor Maternity Portrait', width: 800, height: 600 },
-    { id: 4, src: '/images/maternity/maternity-4.JPG', alt: 'Studio Maternity Shoot', width: 800, height: 600 },
-    { id: 5, src: '/images/maternity/maternity-5.JPG', alt: 'Family Maternity Photos', width: 800, height: 600 },
-    { id: 6, src: '/images/maternity/maternity-6.JPG', alt: 'Maternity with Props', width: 800, height: 600 },
+    { id: 1, src: '/images/maternity/maternity-1.JPG', alt: 'Beautiful Expectant Mother' },
+    { id: 2, src: '/images/maternity/maternity-2.JPG', alt: 'Couple Maternity Session' },
+    { id: 3, src: '/images/maternity/maternity-3.JPG', alt: 'Outdoor Maternity Portrait' },
+    { id: 4, src: '/images/maternity/maternity-4.JPG', alt: 'Studio Maternity Shoot' },
+    { id: 5, src: '/images/maternity/maternity-5.JPG', alt: 'Family Maternity Photos' },
+    { id: 6, src: '/images/maternity/maternity-6.JPG', alt: 'Maternity with Props' },
   ],
   'baby-shoot': [
-    { id: 1, src: '/images/baby-shoot/baby-1.JPG', alt: 'Newborn Baby Portrait', width: 800, height: 600 },
-    { id: 2, src: '/images/baby-shoot/baby-2.JPG', alt: 'Baby with Parents', width: 800, height: 600 },
-    { id: 3, src: '/images/baby-shoot/baby-3.JPG', alt: 'Cute Baby Expressions', width: 800, height: 600 },
-    { id: 4, src: '/images/baby-shoot/baby-4.JPG', alt: 'Baby Milestone Photos', width: 800, height: 600 },
-    { id: 5, src: '/images/baby-shoot/baby-5.JPG', alt: 'Sibling with New Baby', width: 800, height: 600 },
-    { id: 6, src: '/images/baby-shoot/baby-6.JPG', alt: 'Baby in Creative Props', width: 800, height: 600 },
+    { id: 1, src: '/images/baby-shoot/baby-1.JPG', alt: 'Newborn Baby Portrait' },
+    { id: 2, src: '/images/baby-shoot/baby-2.JPG', alt: 'Baby with Parents' },
+    { id: 3, src: '/images/baby-shoot/baby-3.JPG', alt: 'Cute Baby Expressions' },
+    { id: 4, src: '/images/baby-shoot/baby-4.JPG', alt: 'Baby Milestone Photos' },
+    { id: 5, src: '/images/baby-shoot/baby-5.JPG', alt: 'Sibling with New Baby' },
+    { id: 6, src: '/images/baby-shoot/baby-6.JPG', alt: 'Baby in Creative Props' },
   ],
 };
 
 const categoryTitles = {
   wedding: 'Wedding Photography',
   'pre-wedding': 'Pre-Wedding Sessions',
-  events: 'Event Photography',
-  maternity: 'Maternity Photography',
-  'baby-shoot': 'Baby Photography',
+  events: 'Event Coverage',
+  maternity: 'Maternity Masterpieces',
+  'baby-shoot': 'Baby & Newborn Photography',
 };
 
-export default function CategoryGallery() {
+export default function CategoryGallery({ category, initialImages, title }) {
   const router = useRouter();
-  const { category } = router.query;
-  const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (category && imageData[category]) {
-      setImages(imageData[category]);
-      setLoading(false);
-    } else if (category) {
-      setImages([]);
-      setLoading(false);
-    }
-  }, [category]);
 
   const openModal = (image, index) => {
     setSelectedImage(image);
     setSelectedIndex(index);
   };
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  const closeModal = () => setSelectedImage(null);
 
-  const nextImage = () => {
-    if (selectedIndex < images.length - 1) {
+  const nextImage = (e) => {
+    e?.stopPropagation();
+    if (selectedIndex < initialImages.length - 1) {
       const newIndex = selectedIndex + 1;
       setSelectedIndex(newIndex);
-      setSelectedImage(images[newIndex]);
+      setSelectedImage(initialImages[newIndex]);
     }
   };
 
-  const prevImage = () => {
+  const prevImage = (e) => {
+    e?.stopPropagation();
     if (selectedIndex > 0) {
       const newIndex = selectedIndex - 1;
       setSelectedIndex(newIndex);
-      setSelectedImage(images[newIndex]);
+      setSelectedImage(initialImages[newIndex]);
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-  };
-
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+
     if (selectedImage) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
@@ -127,158 +116,161 @@ export default function CategoryGallery() {
     };
   }, [selectedImage, selectedIndex]);
 
-  if (loading) {
+  if (router.isFallback) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-2 border-yellow-400 border-t-transparent"></div>
-      </div>
-    );
-  }
-
-  if (!category || !imageData[category]) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-yellow-400 mb-4">Category Not Found</h1>
-          <p className="text-gray-300 mb-8">The requested category does not exist.</p>
-          <Link href="/" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300">
-            <ChevronLeft className="w-5 h-5 mr-2" />
-            Back to Home
-          </Link>
-        </div>
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-10 w-10 border-2 border-amber-500 border-t-transparent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <>
+    <div className="min-h-screen bg-[#060608] text-zinc-100 selection:bg-amber-500/30 selection:text-amber-200">
+      <Navbar logo={logo} />
 
-<Navbar logo={logo} />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.06] pb-8 mb-12">
+          <div className="space-y-3">
+            <Link 
+              href="/#gallery" 
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-500 uppercase group hover:text-amber-400 transition-colors focus:outline-none"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Back to Collections
+            </Link>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">
+              {title}
+            </h1>
+          </div>
+          <p className="text-sm sm:text-base text-zinc-400 font-light max-w-sm leading-relaxed">
+            A curated narrative of emotional depth and pristine composition, produced by Focus Flix Studio.
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {images.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">No images found in this category.</p>
+        {initialImages.length === 0 ? (
+          <div className="text-center py-24 bg-zinc-900/20 rounded-2xl border border-white/[0.03]">
+            <p className="text-zinc-500 text-lg font-light tracking-wide">No visual assets available in this archive.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-16">
-            {images.map((image, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {initialImages.map((image, index) => (
               <div
                 key={image.id}
-                className="group relative overflow-hidden rounded-xl bg-gray-800 shadow-2xl hover:shadow-yellow-400/20 transition-all duration-500 cursor-pointer"
                 onClick={() => openModal(image, index)}
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-zinc-900 border border-white/[0.04] shadow-lg hover:shadow-2xl hover:border-amber-500/20 transition-all duration-500 cursor-zoom-in"
               >
-                <div className="aspect-w-4 aspect-h-3 relative h-64 overflow-hidden">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter grayscale-[15%] group-hover:grayscale-0"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  loading={index < 4 ? "eager" : "lazy"}
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                  <p className="text-white text-sm font-medium tracking-wide leading-snug">{image.alt}</p>
+                  <p className="text-amber-500 text-[10px] uppercase tracking-widest font-semibold mt-1">Focus Flix Collection</p>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <p className="text-white font-medium">{image.alt}</p>
-                </div>
-                <div className="absolute inset-0 ring-1 ring-yellow-400/20 rounded-xl group-hover:ring-yellow-400/40 transition-all duration-300"></div>
               </div>
             ))}
           </div>
         )}
-      </div>
+      </main>
 
-      {/* Full View Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm">
-          <div className="relative max-w-7xl max-h-full mx-4 bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-            {/* Close Button */}
+        <div 
+          onClick={closeModal}
+          className="fixed inset-0 z-50 flex flex-col justify-between bg-black/98 backdrop-blur-md animate-fadeIn"
+        >
+          <div className="relative w-full flex items-center justify-between px-4 sm:px-6 py-4 z-10 bg-gradient-to-b from-black/60 to-transparent">
+            <div className="min-w-0">
+              <h3 className="text-white font-medium text-sm sm:text-base tracking-wide truncate">{selectedImage.alt}</h3>
+              <p className="text-zinc-500 text-xs tracking-wider mt-0.5">{title}</p>
+            </div>
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-300"
+              className="p-2.5 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-full border border-white/[0.05] transition-all focus:outline-none"
+              aria-label="Close Gallery View"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
+          </div>
 
-            {/* Navigation Buttons */}
-            {selectedIndex > 0 && (
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-300"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-            )}
-
-            {selectedIndex < images.length - 1 && (
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-300"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            )}
-
-            {/* Image Container */}
-            <div className="relative max-h-[90vh] flex items-center justify-center p-4">
-              <div className="relative max-w-6xl max-h-full">
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  width={1200}
-                  height={800}
-                  className="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl"
-                  priority
-                />
-              </div>
+          <div className="relative flex-1 flex items-center justify-between px-2 sm:px-8">
+         
+            <div className="w-14 sm:w-20 flex justify-start z-10">
+              {selectedIndex > 0 && (
+                <button
+                  onClick={prevImage}
+                  className="p-3 bg-zinc-900/40 hover:bg-zinc-900/80 text-white rounded-xl border border-white/[0.04] transition-all hover:scale-105 active:scale-95 focus:outline-none"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+              )}
             </div>
 
-            {/* Image Info */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-white font-semibold text-lg">{selectedImage.alt}</h3>
-                  <p className="text-gray-300 text-sm">{categoryTitles[category]}</p>
-                </div>
-                <div className="text-yellow-400 text-sm">
-                  {selectedIndex + 1} / {images.length}
-                </div>
-              </div>
+            <div 
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-full max-h-[75vh] aspect-[4/3] flex items-center justify-center pointer-events-none select-none animate-scaleIn"
+            >
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain rounded-lg shadow-2xl drop-shadow-[0_0_32px_rgba(0,0,0,0.8)]"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+              />
             </div>
+
+            <div className="w-14 sm:w-20 flex justify-end z-10">
+              {selectedIndex < initialImages.length - 1 && (
+                <button
+                  onClick={nextImage}
+                  className="p-3 bg-zinc-900/40 hover:bg-zinc-900/80 text-white rounded-xl border border-white/[0.04] transition-all hover:scale-105 active:scale-95 focus:outline-none"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="w-full text-center py-5 bg-gradient-to-t from-black/60 to-transparent z-10">
+            <span className="inline-block px-3 py-1 bg-zinc-900/60 border border-white/[0.05] rounded-full text-amber-500 text-xs font-mono tracking-widest">
+              {selectedIndex + 1} <span className="text-zinc-600">/</span> {initialImages.length}
+            </span>
           </div>
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }
 
-// Optional: Add getStaticPaths and getStaticProps for better SEO and performance
 export async function getStaticPaths() {
-  const categories = Object.keys(imageData);
-  const paths = categories.map(category => ({
-    params: { category }
+  const paths = Object.keys(imageData).map((category) => ({
+    params: { category },
   }));
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const { category } = params;
   
-  if (!imageData[category]) {
-    return {
-      notFound: true
-    };
-  }
-
   return {
     props: {
       category,
-      images: imageData[category],
-      title: categoryTitles[category]
-    }
+      initialImages: imageData[category] || [],
+      title: categoryTitles[category] || 'Photography Archive',
+    },
   };
 }

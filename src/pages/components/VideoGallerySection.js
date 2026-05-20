@@ -62,7 +62,7 @@ const VideoGallerySection = () => {
         <div className='w-[20%] my-5 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent'></div>
       </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-8">
           {videos.map((video, index) => (
             <div
               key={video.id}
@@ -76,7 +76,6 @@ const VideoGallerySection = () => {
                 animationDelay: `${index * 0.1}s`,
               }}
             >
-              {/* Thumbnail Container */}
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src={video.thumbnail}
@@ -84,33 +83,30 @@ const VideoGallerySection = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-all duration-300 hover:bg-white/30">
                     <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
                   </div>
                 </div>
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
+      
+                <div className="absolute md:top-4 top-2 left-2 md:left-4">
+                  <span className="md:px-3 md:py-1 px-2 py-0.5 bg-blue-600 text-white text-[10px] md:text-xs md:font-medium rounded-full">
                     {video.category}
                   </span>
                 </div>
 
-                {/* Duration Badge */}
-                <div className="absolute bottom-4 right-4 flex items-center space-x-1 bg-black/70 backdrop-blur-sm rounded-full px-2 py-1">
-                  <Clock className="w-3 h-3 text-white" />
-                  <span className="text-white text-xs font-medium">{video.duration}</span>
+          
+                <div className="absolute md:bottom-4 right-2 bottom-2 md:right-4 flex items-center space-x-1 bg-black/70 backdrop-blur-sm rounded-full px-2 py-1">
+                  <Clock className="w-2 h-2 md:w-3 md:h-3 text-white" />
+                  <span className="text-white text-[10px] md:text-xs md:font-medium">{video.duration}</span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="p-2 md:p-6">
+                <h3 className="md:text-lg text-sm md:font-bold text-white mb-2 group-hover:text-blue-600 transition-colors duration-300">
                   {video.title}
                 </h3>
 

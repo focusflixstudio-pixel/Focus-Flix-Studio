@@ -36,3 +36,29 @@ body {
   font-family: 'Amsterdam Four', cursive;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/montserrat.bold.ttf') format('truetype');
+}
+
+.mont {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'Salemore';
+  src: url('fonts/SalemoreLongest.ttf') format('truetype');
+}
+
+.salemore {
+  font-family: 'Salemore', cursive;
+}
+
+@font-face {
+  font-family: 'Castlerock';
+  src: url('fonts/CASTLEROCKS-Bold_Personal\ Use.otf') format('truetype');
+}
+
+.castlerock {
+  font-family: 'Castlerock', cursive;
+}
