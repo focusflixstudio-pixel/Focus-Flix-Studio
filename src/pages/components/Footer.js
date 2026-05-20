@@ -36,7 +36,7 @@ const Footer = () => {
     { 
       name: 'Facebook', 
       icon: Facebook, 
-      href: 'https://www.facebook.com/focusflixstudio',
+      href: 'https://www.facebook.com/share/1CkSmXbkGY/',
       color: 'hover:text-blue-400'
     },
     { 
@@ -165,7 +165,7 @@ const Footer = () => {
               </a>
 
               <a 
-                href="mailto:hello@focusflix.in" 
+                href="mailto:focusflixstudio@gmail.com" 
                 className="group flex items-center gap-4 p-3 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-amber-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-400/50"
               >
                 <div className="p-2 bg-amber-400/10 rounded-lg group-hover:bg-amber-400/20 transition-colors shrink-0">
@@ -173,7 +173,7 @@ const Footer = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Email</p>
-                  <p className="text-white text-sm font-medium truncate">hello@focusflix.in</p>
+                  <p className="text-white text-sm font-medium truncate">focusflixstudio@gmail.com</p>
                 </div>
                 <ExternalLink className="w-3.5 h-3.5 text-gray-500 opacity-0 group-hover:opacity-100 transition-all shrink-0" />
               </a>

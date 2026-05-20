@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const services = [
   { title: 'Wedding Photography', image: '/images/wedding/wedding1.jpg', slug: 'wedding' },
-  { title: 'Pre Weddings', image: '/images/pre-wedding/pre-wedding-4.JPG', slug: 'pre-wedding' },
+  { title: 'Pre Weddings', image: '/images/pre-wedding/pre-wedding-4.jpg', slug: 'pre-wedding' },
   { title: 'Events Photography', image: '/images/events/event-1.jpg', slug: 'events' },
   { title: 'Maternity Shoot', image: '/images/maternity/maternity-1.jpg', slug: 'maternity' },
   { title: 'Baby Shoot', image: '/images/baby-shoot/baby-1.jpg', slug: 'baby-shoot' },
@@ -55,8 +55,8 @@ const ServicesSection = () => {
             <Image
               src={service.image}
               alt={service.title}
-              layout="fill"
-              objectFit="cover"
+          fill
+style={{ objectFit: 'cover' }}
               className={`
                 rounded-2xl transition-all duration-500 ease-out
                 hover:brightness-110 hover:contrast-105
