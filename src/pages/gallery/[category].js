@@ -10,50 +10,49 @@ import Footer from '../components/Footer';
 
 const imageData = {
   wedding: [
-    { id: 1, src: '/images/wedding/wedding1.jpg', alt: 'Beautiful Wedding Ceremony' },
-    { id: 2, src: '/images/wedding/wedding2.jpg', alt: 'Bride and Groom Portrait' },
-    { id: 3, src: '/images/wedding/wedding3.JPG', alt: 'Wedding Reception Dance' },
-    { id: 4, src: '/images/wedding/wedding4.JPG', alt: 'Exchange of Vows' },
-    { id: 5, src: '/images/wedding/wedding5.JPG', alt: 'Wedding Party Group Photo' },
-    { id: 6, src: '/images/wedding/wedding6.jpg', alt: 'Romantic Couple Shot' },
-    { id: 7, src: '/images/wedding/wedding7.jpg', alt: 'Wedding Cake Cutting' },
-    { id: 8, src: '/images/wedding/wedding8.JPG', alt: 'First Dance Moment' },
+    { id: 1, src: '/images/wedding/wedding-1.webp', alt: 'Beautiful Wedding Ceremony' },
+    { id: 2, src: '/images/wedding/wedding-2.webp', alt: 'Bride and Groom Portrait' },
+    { id: 3, src: '/images/wedding/wedding-3.webp', alt: 'Wedding Reception Dance' },
+    { id: 4, src: '/images/wedding/wedding-4.webp', alt: 'Exchange of Vows' },
+    { id: 5, src: '/images/wedding/wedding-5.webp', alt: 'Wedding Party Group Photo' },
+    { id: 6, src: '/images/wedding/wedding-6.webp', alt: 'Romantic Couple Shot' },
+    { id: 7, src: '/images/wedding/wedding-7.webp', alt: 'Wedding Cake Cutting' },
+    { id: 8, src: '/images/wedding/wedding-8.webp', alt: 'First Dance Moment' },
   ],
   'pre-wedding': [
-    { id: 1, src: '/images/pre-wedding/pre-wedding-1.jpg', alt: 'Romantic Outdoor Session' },
-    { id: 2, src: '/images/pre-wedding/pre-wedding-2.jpg', alt: 'Sunset Couple Portrait' },
-    { id: 3, src: '/images/pre-wedding/pre-wedding-3.jpg', alt: 'Casual Fun Moments' },
-    { id: 4, src: '/images/pre-wedding/pre-wedding-4.jpg', alt: 'Intimate Close-up Shot' },
-    { id: 5, src: '/images/pre-wedding/pre-wedding-5.jpg', alt: 'Beach Romance Session' },
-    { id: 6, src: '/images/pre-wedding/pre-wedding-6.jpg', alt: 'Garden Love Story' },
-    { id: 7, src: '/images/pre-wedding/pre-wedding-7.jpg', alt: 'Garden Love Story' },
-    { id: 8, src: '/images/pre-wedding/pre-wedding-8.jpg', alt: 'Cityscape Couple Shot' },
+    { id: 1, src: '/images/pre-wedding/pre-wedding-1.webp', alt: 'Romantic Outdoor Session' },
+    { id: 2, src: '/images/pre-wedding/pre-wedding-2.webp', alt: 'Sunset Couple Portrait' },
+    { id: 3, src: '/images/pre-wedding/pre-wedding-3.webp', alt: 'Casual Fun Moments' },
+    { id: 4, src: '/images/pre-wedding/pre-wedding-4.webp', alt: 'Intimate Close-up Shot' },
+    { id: 5, src: '/images/pre-wedding/pre-wedding-5.webp', alt: 'Beach Romance Session' },
+    { id: 6, src: '/images/pre-wedding/pre-wedding-6.webp', alt: 'Garden Love Story' },
+    { id: 7, src: '/images/pre-wedding/pre-wedding-7.webp', alt: 'Garden Love Story' },
   ],
   events: [
-    { id: 1, src: '/images/events/event-1.jpg', alt: 'Corporate Event Photography' },
-    { id: 2, src: '/images/events/event-2.JPG', alt: 'Birthday Party Celebration' },
-    { id: 3, src: '/images/events/event-3.JPG', alt: 'Conference and Seminars' },
-    { id: 4, src: '/images/events/event-4.jpg', alt: 'Social Gathering Moments' },
-    { id: 5, src: '/images/events/event-5.JPG', alt: 'Festival and Cultural Events' },
-    { id: 6, src: '/images/events/event-6.JPG', alt: 'Award Ceremony Coverage' },
-    { id: 7, src: '/images/events/event-7.JPG', alt: 'Concert and Live Events' },
-    { id: 8, src: '/images/events/event-8.JPG', alt: 'Family Reunion Photography' },
+    { id: 1, src: '/images/events/event-1.webp', alt: 'Corporate Event Photography' },
+    { id: 2, src: '/images/events/event-2.webp', alt: 'Birthday Party Celebration' },
+    { id: 3, src: '/images/events/event-3.webp', alt: 'Conference and Seminars' },
+    { id: 4, src: '/images/events/event-4.webp', alt: 'Social Gathering Moments' },
+    { id: 5, src: '/images/events/event-5.webp', alt: 'Festival and Cultural Events' },
+    { id: 6, src: '/images/events/event-6.webp', alt: 'Award Ceremony Coverage' },
+    { id: 7, src: '/images/events/event-7.webp', alt: 'Concert and Live Events' },
+    { id: 8, src: '/images/events/event-8.webp', alt: 'Family Reunion Photography' },
   ],
   maternity: [
-    { id: 1, src: '/images/maternity/maternity-1.JPG', alt: 'Beautiful Expectant Mother' },
-    { id: 2, src: '/images/maternity/maternity-2.JPG', alt: 'Couple Maternity Session' },
-    { id: 3, src: '/images/maternity/maternity-3.JPG', alt: 'Outdoor Maternity Portrait' },
-    { id: 4, src: '/images/maternity/maternity-4.JPG', alt: 'Studio Maternity Shoot' },
-    { id: 5, src: '/images/maternity/maternity-5.JPG', alt: 'Family Maternity Photos' },
-    { id: 6, src: '/images/maternity/maternity-6.JPG', alt: 'Maternity with Props' },
+    { id: 1, src: '/images/maternity/maternity-1.webp', alt: 'Beautiful Expectant Mother' },
+    { id: 2, src: '/images/maternity/maternity-2.webp', alt: 'Couple Maternity Session' },
+    { id: 3, src: '/images/maternity/maternity-3.webp', alt: 'Outdoor Maternity Portrait' },
+    { id: 4, src: '/images/maternity/maternity-4.webp', alt: 'Studio Maternity Shoot' },
+    { id: 5, src: '/images/maternity/maternity-5.webp', alt: 'Family Maternity Photos' },
+    { id: 6, src: '/images/maternity/maternity-6.webp', alt: 'Maternity with Props' },
   ],
   'baby-shoot': [
-    { id: 1, src: '/images/baby-shoot/baby-1.JPG', alt: 'Newborn Baby Portrait' },
-    { id: 2, src: '/images/baby-shoot/baby-2.JPG', alt: 'Baby with Parents' },
-    { id: 3, src: '/images/baby-shoot/baby-3.JPG', alt: 'Cute Baby Expressions' },
-    { id: 4, src: '/images/baby-shoot/baby-4.JPG', alt: 'Baby Milestone Photos' },
-    { id: 5, src: '/images/baby-shoot/baby-5.JPG', alt: 'Sibling with New Baby' },
-    { id: 6, src: '/images/baby-shoot/baby-6.JPG', alt: 'Baby in Creative Props' },
+    { id: 1, src: '/images/baby-shoot/baby-1.webp', alt: 'Newborn Baby Portrait' },
+    { id: 2, src: '/images/baby-shoot/baby-2.webp', alt: 'Baby with Parents' },
+    { id: 3, src: '/images/baby-shoot/baby-3.webp', alt: 'Cute Baby Expressions' },
+    { id: 4, src: '/images/baby-shoot/baby-4.webp', alt: 'Baby Milestone Photos' },
+    { id: 5, src: '/images/baby-shoot/baby-5.webp', alt: 'Sibling with New Baby' },
+    { id: 6, src: '/images/baby-shoot/baby-6.webp', alt: 'Baby in Creative Props' },
   ],
 };
 
@@ -214,9 +213,9 @@ export default function CategoryGallery({ category, initialImages, title }) {
             </div>
 
             <div 
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-full max-h-[75vh] aspect-[4/3] flex items-center justify-center pointer-events-none select-none animate-scaleIn"
-            >
+  onClick={(e) => e.stopPropagation()}
+  className="relative w-full max-w-6xl h-[75vh] flex items-center justify-center animate-scaleIn"
+>
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}

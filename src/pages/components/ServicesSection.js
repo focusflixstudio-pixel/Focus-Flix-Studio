@@ -4,11 +4,11 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 const services = [
-  { title: 'Wedding Photography', image: '/images/wedding/wedding1.jpg', slug: 'wedding' },
-  { title: 'Pre Weddings', image: '/images/pre-wedding/pre-wedding-4.jpg', slug: 'pre-wedding' },
-  { title: 'Events Photography', image: '/images/events/event-1.jpg', slug: 'events' },
-  { title: 'Maternity Shoot', image: '/images/maternity/maternity-1.jpg', slug: 'maternity' },
-  { title: 'Baby Shoot', image: '/images/baby-shoot/baby-1.jpg', slug: 'baby-shoot' },
+  { title: 'Wedding Photography', image: '/images/wedding/wedding-1.webp', slug: 'wedding' },
+  { title: 'Pre Weddings', image: '/images/pre-wedding/pre-wedding-4.webp', slug: 'pre-wedding' },
+  { title: 'Events Photography', image: '/images/events/event-1.webp', slug: 'events' },
+  { title: 'Maternity Shoot', image: '/images/maternity/maternity-1.webp', slug: 'maternity' },
+  { title: 'Baby Shoot', image: '/images/baby-shoot/baby-1.webp', slug: 'baby-shoot' },
 ]
 
 const ServicesSection = () => {
