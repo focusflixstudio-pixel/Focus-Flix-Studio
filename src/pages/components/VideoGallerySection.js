@@ -7,6 +7,17 @@ const VideoGallerySection = () => {
   const videos = [
     {
       id: 1,
+title: "Ankit & Poonam",
+description: "Comprehensive walkthrough of our latest wedding teaser",
+thumbnail: "images/ankitpoonam.webp",
+duration: "03:36",
+views: "12.4K",
+driveLink: "https://www.youtube.com/watch?v=6iOquzbZ47A",
+category: "Wedding"
+    },
+    {
+      
+      id: 1,
       title: "Gaurav & Jyotika",
       description: "Comprehensive walkthrough of our latest features",
       thumbnail: "images/gaurav.png",

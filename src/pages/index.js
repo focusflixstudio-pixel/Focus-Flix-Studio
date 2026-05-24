@@ -10,6 +10,7 @@ import AchievementStrip from './components/AchievementStrip'
 import ServicesSection from './components/ServicesSection'
 import VideoGallerySection from './components/VideoGallerySection'
 import Head from 'next/head'
+import PhotoHighlight from './components/PhotoHighlight'
 
 const POPUP_STORAGE_KEY = 'focusflix_quote_popup_closed';
 
@@ -195,6 +196,8 @@ const closeForm = () => {
     <div className='w-full bg-[#0d0d0d] scroll-smooth'>
       <Navbar logo={logo} />
      <HeroSection />
+
+     <PhotoHighlight />
 
       <div className='w-full justify-center text-center items-center flex flex-col mt-10'>
         <p className='md:text-2xl text-xl text-white'>
