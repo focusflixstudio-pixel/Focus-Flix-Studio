@@ -11,7 +11,6 @@ const HeroSection = () => {
   useEffect(() => {
     setIsLoaded(true)
     
-    // Smooth text loop interval
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length)
     }, 2500)

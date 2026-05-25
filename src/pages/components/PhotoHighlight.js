@@ -20,21 +20,14 @@ const PhotoHighlight = () => {
       id: 3,
       title: "Intimate Moments",
       category: "Wedding / Lifestyle",
-      image: "/images/h3.webp",
+      image: "/images/poonam2.webp",
       link: "#" 
     },
     {
       id: 4,
       title: "Urban Stories",
         category: "Street / Documentary",
-        image: "/images/h4.webp",
-        link: "#"
-    },
-        {
-        id: 5,
-        title: "Nature's Embrace",
-        category: "Landscape / Fine Art",
-        image: "/images/h5.webp",
+        image: "/images/ankitpoonam.webp",
         link: "#"
     }
   ];
@@ -46,7 +39,7 @@ const PhotoHighlight = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="mb-12 text-center md:text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-amber-500 font-medium mb-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-white font-medium mb-3">
             Featured Showcases
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-slate-100 tracking-tight">
